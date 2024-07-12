@@ -1,0 +1,50 @@
+{
+  "canisters": {
+    "air-water-backend": {
+      "build": "npx azle air-water-backend",
+      "candid": "src/air-water-backend/air-water-backend.did",
+      "gzip": true,
+      "main": "src/air-water-backend/src/index.ts",
+      "tech_stack": {
+        "cdk": {
+          "azle": {}
+        },
+        "language": {
+          "javascript": {},
+          "typescript": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".azle/air-water-backend/air-water-backend.wasm"
+    },
+    "air-water-frontend": {
+      "dependencies": [
+        "air-water-backend"
+      ],
+      "source": [
+        "src/air-water-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "air-water-frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
